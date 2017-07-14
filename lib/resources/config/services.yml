@@ -1,0 +1,10 @@
+parameters:
+
+    conga.session.manager.constructor: "@conga/framework-session:CongaSessionManager"
+
+services:
+
+    conga.view.manager:
+        constructor: "%conga.session.manager.constructor%"
+        tags:
+            - { name: app.pre_middleware, method: onAddMiddleware, priority: 2048 }

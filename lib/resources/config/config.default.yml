@@ -1,0 +1,12 @@
+# sessions
+session:
+
+    secret: 'keyboard cat'
+    resave: true
+    saveUninitialized: true
+
+    cookie:
+
+        name: conga.sid
+
+    store:

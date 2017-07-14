@@ -1,0 +1,5 @@
+# webpack
+webpack:
+
+    # the path to the config file
+    config.path: "demo-bundle:resources/public/webpack.prod.js"

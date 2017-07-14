@@ -1,0 +1,37 @@
+{
+  "name": "@conga/framework-session",
+  "version": "2.0.3-dev",
+  "description": "Session handler for the Conga.js Framework",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/jasmine/bin/jasmine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/congajs/conga-session.git"
+  },
+  "keywords": [],
+  "author": "Marc Roulias",
+  "contributors": [
+    {
+      "name": "Anthony Matarazzo",
+      "email": "email@anthonymatarazzo.com"
+    }
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "dependencies": {
+    "express-session": "^1.15.3"
+  },
+  "devDependencies": {
+    "@conga/framework": "latest",
+    "jasmine": "^2.6.0",
+    "request": "^2.81.0",
+    "session-file-store": "^1.0.0"
+  },
+  "readmeFilename": "README.md"
+}

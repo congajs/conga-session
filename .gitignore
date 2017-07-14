@@ -1,0 +1,11 @@
+# ide
+.settings
+.project
+
+# node/npm
+node_modules
+npm-debug.log
+
+.DS_Store
+
+spec/data/projects/sample/var/*
