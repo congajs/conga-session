@@ -4,7 +4,8 @@ parameters:
 
 services:
 
-    conga.view.manager:
+    conga.session.manager:
+        alias: session
         constructor: "%conga.session.manager.constructor%"
         tags:
             - { name: app.pre_middleware, method: onAddMiddleware, priority: 2048 }
