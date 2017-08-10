@@ -4,8 +4,14 @@ parameters:
 
 services:
 
+    conga.session.mixin.flashBag:
+        function: "@conga/framework-session:mixins/FlashBag/FlashBagMixin"
+        tags:
+            - { name: session.mixin, priority: 0.1 }
+
     conga.session.manager:
         alias: session
         constructor: "%conga.session.manager.constructor%"
         tags:
             - { name: app.pre_middleware, method: onAddMiddleware, priority: 2048 }
+

@@ -62,6 +62,38 @@ describe("Kernel", () => {
 
     });
 
+    it("should set and get a flash-bag value", (done) => {
 
+        request({
+            uri: 'http://localhost:5555/set-flash-bag-value',
+            method: 'GET',
+            jar: true
+        }, (error, response, body) => {
+
+            request({
+                uri: 'http://localhost:5555/get-flash-bag-value',
+                method: 'GET',
+                jar: true
+            }, (error, response, body) => {
+
+                expect(JSON.parse(body).value).toEqual('got flash bag!');
+
+                request({
+                    uri: 'http://localhost:5555/get-flash-bag-value',
+                    method: 'GET',
+                    jar: true
+                }, (error, response, body) => {
+
+                    expect(JSON.parse(body).value).toBeFalsy();
+
+                    done();
+
+                });
+
+            });
+
+        });
+
+    });
 
 });

@@ -30,4 +30,21 @@ module.exports = class DefaultController extends Controller {
             session: req.session
         });
     }
-}
+
+    /**
+     * @Route("/set-flash-bag-value", methods=["GET"])
+     */
+    setFlashBagValue(req, res) {
+        req.session.getFlashBag().set('test-flash', 'got flash bag!');
+        res.return(null);
+    }
+
+    /**
+     * @Route("/get-flash-bag-value", methods=["GET"])
+     */
+    getFlashBagValue(req, res) {
+        res.return({
+            value: req.session.getFlashBag().get('test-flash')
+        });
+    }
+};
