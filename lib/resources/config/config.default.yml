@@ -5,6 +5,12 @@ session:
     resave: true
     saveUninitialized: true
 
+    mixins:
+        enabled: true
+        #disabled:
+        #    - flashBag
+        #    - iterable
+
     cookie:
 
         name: conga.sid

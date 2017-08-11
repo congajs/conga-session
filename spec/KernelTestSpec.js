@@ -27,6 +27,10 @@ describe("Kernel", () => {
 
     });
 
+    afterAll(done => {
+        kernel.shutdown(() => done());
+    });
+
     it("should have a cookie", (done) => {
 
         request({
@@ -91,6 +95,41 @@ describe("Kernel", () => {
                 });
 
             });
+
+        });
+
+    });
+
+    it("should support the iterable mixin", (done) => {
+
+        request({
+            uri: 'http://localhost:5555/mixins/get-session-keys',
+            method: 'GET',
+            jar: true
+        }, (error, response, body) => {
+
+            try {
+                body = JSON.parse(body);
+            } catch (err) {
+                expect(err).toBeUndefined();
+            }
+
+            expect(body.keys).toBeTruthy();
+            expect(body.keys.length).toBeGreaterThan(0);
+            expect(body.keys.indexOf('NEW_SESSION_KEY')).toBeGreaterThan(-1);
+            expect(body.keys.indexOf('MY_SESSION_VALUE')).toBeGreaterThan(-1);
+
+            expect(body.data).toBeTruthy();
+            expect(Object.keys(body.data).length).toEqual(body.keys.length);
+
+            expect(body.NEW_SESSION_KEY).toEqual('testers');
+            expect(body.MY_SESSION_VALUE).toEqual(12345);
+
+            expect(body.hasRandom).toBeFalsy();
+            expect(body.hasNewSessionKey).toBeTruthy();
+            expect(body.hasMySessionValue).toBeTruthy();
+
+            done();
 
         });
 

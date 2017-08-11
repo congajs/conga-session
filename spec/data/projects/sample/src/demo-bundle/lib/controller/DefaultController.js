@@ -47,4 +47,48 @@ module.exports = class DefaultController extends Controller {
             value: req.session.getFlashBag().get('test-flash')
         });
     }
+
+    /**
+     * @Route("/mixins/get-session-keys", methods=["GET"])
+     */
+    getSessionKeys(req, res) {
+        req.session.set('NEW_SESSION_KEY', 'testers');
+        res.return({
+            keys: req.session.keys(),
+            data: req.session.values(),
+            entries: req.session.entries(),
+            hasRandom: req.session.has(Math.floor(Math.random() * 25) + '_KEY'),
+            hasNewSessionKey: req.session.has('NEW_SESSION_KEY'),
+            hasMySessionValue: req.session.has('MY_SESSION_VALUE'),
+            MY_SESSION_VALUE: req.session.get('MY_SESSION_VALUE'),
+            NEW_SESSION_KEY: req.session.get('NEW_SESSION_KEY')
+        });
+    }
+
+    /**
+     * @Route("/mixins/check-iterable", methods=["GET"])
+     */
+    checkIterable(req, res) {
+        res.return({
+            hasIterable: (
+                typeof req.session.get === 'function' &&
+                typeof req.session.set === 'function' &&
+                typeof req.session.has === 'function' &&
+                typeof req.session.keys === 'function' &&
+                typeof req.session.delete === 'function' &&
+                typeof req.session.entries === 'function' &&
+                typeof req.session.values === 'function'
+            )
+        });
+    }
+
+    /**
+     * @Route("/mixins/check-flash-bag", methods=["GET"])
+     */
+    checkFlashBag(req, res) {
+        res.return({
+            hasFlashBag: typeof req.session.getFlashBag === 'function',
+            flashBag: req.session.getFlashBag && req.session.getFlashBag()
+        });
+    }
 };

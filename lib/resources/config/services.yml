@@ -4,10 +4,15 @@ parameters:
 
 services:
 
+    conga.session.mixin.iterable:
+        function: "@conga/framework-session:mixins/Iterable"
+        tags:
+            - { name: session.mixin, mixin: iterable, priority: 0.1 }
+
     conga.session.mixin.flashBag:
         function: "@conga/framework-session:mixins/FlashBag/FlashBagMixin"
         tags:
-            - { name: session.mixin, priority: 0.1 }
+            - { name: session.mixin, mixin: flashBag, priority: 0.2 }
 
     conga.session.manager:
         alias: session

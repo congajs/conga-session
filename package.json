@@ -1,12 +1,16 @@
 {
   "name": "@conga/framework-session",
-  "version": "2.0.6-dev",
+  "version": "2.0.5-dev",
   "description": "Session handler for the Conga.js Framework",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/jasmine/bin/jasmine.js"
+    "test": "npm run test_kernel && npm run test_mixins",
+    "test_kernel": "./node_modules/jasmine/bin/jasmine.js spec/KernelTestSpec.js",
+    "test_mixins": "npm run test_mixin_disabled && npm run test_mixin_disabled_list",
+    "test_mixin_disabled_list": "./node_modules/jasmine/bin/jasmine.js spec/MixinDisabledListSpec.js",
+    "test_mixin_disabled": "./node_modules/jasmine/bin/jasmine.js spec/MixinDisabledSpec.js"
   },
   "repository": {
     "type": "git",
