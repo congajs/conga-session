@@ -32,7 +32,7 @@ module.exports = class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/set-flash-bag-value", methods=["GET"])
+     * @Route("/mixins/set-flash-bag-value", methods=["GET"])
      */
     setFlashBagValue(req, res) {
         req.session.getFlashBag().set('test-flash', 'got flash bag!');
@@ -40,7 +40,7 @@ module.exports = class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/get-flash-bag-value", methods=["GET"])
+     * @Route("/mixins/get-flash-bag-value", methods=["GET"])
      */
     getFlashBagValue(req, res) {
         res.return({
