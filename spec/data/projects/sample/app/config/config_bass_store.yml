@@ -36,7 +36,7 @@ bass:
 
       session:
           adapter: bass-nedb
-          directory: "%kernel.var_path%/data/bass/sessions"
+          #directory: "%kernel.var_path%/data/bass/sessions"
 
   managers:
 
@@ -53,7 +53,7 @@ session:
         options:
             ttl: 300
             retries: 4
-            bass: {$bass}
+            bass: ${bass.listener::getBass}
             manager: session
             document: Session
             expiresField: expiresAt
