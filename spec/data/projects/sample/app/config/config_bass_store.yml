@@ -1,0 +1,60 @@
+imports:
+    - { resource : config.yml }
+
+# bundles to enable
+bundles:
+
+    all:
+
+        # project bundles (from src/ directory)
+        - "demo-bundle"
+
+        # core conga bundles (from node_modules/ directory)
+        - "@conga/framework-session"
+        - "@conga/framework-bass"
+
+framework:
+
+    # application settings
+    app:
+
+        port:  5555
+
+    logger:
+
+        # log to console for development mode
+        default:
+            type: console
+            level: DEBUG
+
+bass:
+
+  adapters:
+      - bass-nedb
+
+  connections:
+
+      session:
+          adapter: bass-nedb
+          directory: "%kernel.var_path%/data/bass/sessions"
+
+  managers:
+
+      session:
+          adapter: bass-nedb
+          connection: session
+          documents:
+              session: demo-bundle:model/Session.js
+session:
+
+    store:
+
+        module: "@conga/bass-express-session"
+        options:
+            ttl: 300
+            retries: 4
+            bass: {$bass}
+            manager: session
+            document: Session
+            expiresField: expiresAt
+            dataField: data

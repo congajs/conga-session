@@ -1,13 +1,16 @@
 {
   "name": "@conga/framework-session",
-  "version": "2.0.8-dev",
+  "version": "2.0.9-dev",
   "description": "Session handler for the Conga.js Framework",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npm run test_kernel && npm run test_mixins",
+    "test": "npm run test_all",
+    "test_all": "npm run test_kernel && npm run test_mixins && npm run test_default_store && npm run test_bass_store",
     "test_kernel": "./node_modules/jasmine/bin/jasmine.js spec/KernelTestSpec.js",
+    "test_default_store": "./node_modules/jasmine/bin/jasmine.js spec/DefaultStoreSpec.js",
+    "test_bass_store": "./node_modules/jasmine/bin/jasmine.js spec/BassStoreSpec.js",
     "test_mixins": "npm run test_mixin_disabled && npm run test_mixin_disabled_list",
     "test_mixin_disabled_list": "./node_modules/jasmine/bin/jasmine.js spec/MixinDisabledListSpec.js",
     "test_mixin_disabled": "./node_modules/jasmine/bin/jasmine.js spec/MixinDisabledSpec.js"
@@ -32,10 +35,13 @@
     "express-session": "^1.15.3"
   },
   "devDependencies": {
-    "@conga/framework": "latest",
     "jasmine": "^2.6.0",
     "request": "^2.81.0",
-    "session-file-store": "^1.0.0"
+    "session-file-store": "^1.0.0",
+    "@conga/framework": "latest",
+    "@conga/framework-bass": "congajs/conga-bass#2.0.0-dev",
+    "@conga/bass-express-session": "^1.0.2",
+    "bass-nedb": "latest"
   },
   "readmeFilename": "README.md"
 }

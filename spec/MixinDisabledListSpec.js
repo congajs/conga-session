@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const request = require('request');
 const Kernel = require('@conga/framework/lib/kernel/TestKernel');

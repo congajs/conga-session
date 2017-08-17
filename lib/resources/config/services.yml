@@ -18,5 +18,6 @@ services:
         alias: session
         constructor: "%conga.session.manager.constructor%"
         tags:
+            - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 3 }
             - { name: app.pre_middleware, method: onAddMiddleware, priority: 2048 }
 

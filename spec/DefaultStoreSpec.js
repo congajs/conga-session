@@ -1,7 +1,8 @@
 const path = require('path');
+
 const Kernel = require('@conga/framework/lib/kernel/TestKernel');
 
-describe("Kernel", () => {
+describe("Default Store", () => {
 
     let kernel;
 
@@ -10,7 +11,7 @@ describe("Kernel", () => {
         kernel = new Kernel(
             path.join(__dirname, '..', 'spec', 'data', 'projects', 'sample'),
             'app',
-            'test',
+            'default_store',
             {}
         );
 
