@@ -141,6 +141,11 @@ class MyMixin {
     
     set(name, value) {
         this.data[name] = value;
+        return value;
+    }
+    
+    get(name) {
+        return this.data[name];
     }
 }
  
