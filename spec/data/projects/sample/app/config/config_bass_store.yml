@@ -53,7 +53,7 @@ session:
         options:
             ttl: 300
             retries: 4
-            bass: ${bass.listener::getBass}
+            bass: ${conga-bass::bass}
             manager: session
             document: Session
             expiresField: expiresAt
