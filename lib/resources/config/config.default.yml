@@ -11,8 +11,10 @@ session:
         #    - flashBag
         #    - iterable
 
-    cookie:
 
-        name: conga.sid
+    name: conga.sid
+
+    profiler:
+        enabled: true
 
     store:

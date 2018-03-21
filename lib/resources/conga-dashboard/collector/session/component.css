@@ -1,0 +1,25 @@
+#session-collector pre {
+    padding: 0;
+}
+
+#session-collector .body {
+    padding-top: 30px;
+}
+
+#session-collector .error-card {
+    margin-bottom: 30px;
+}
+
+#session-collector .card.collapsable .card-header {
+    cursor: pointer;
+}
+
+#session-collector .card.collapsable .card-header {
+    background-color: whitesmoke;
+}
+#session-collector .card.collapsable .card-header-title .content {
+    padding-left: 15px;
+}
+#session-collector .card.collapsable .card-header:hover .card-header-title .content {
+    text-decoration: underline;
+}

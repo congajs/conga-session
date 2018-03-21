@@ -22,3 +22,10 @@ services:
             - { name: kernel.event, event: kernel.request_scope, method: onRequestScope, priority: -1 }
             - { name: app.pre_middleware, method: onAddMiddleware, priority: 2048 }
 
+    # session data collector
+    session.collector:
+        constructor: "@conga/framework-session:collector/SessionDataCollector"
+        arguments: ["@service_container"]
+        tags:
+            - { name: profiler.data_collector }
+
