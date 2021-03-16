@@ -1,6 +1,6 @@
 {
   "name": "@conga/framework-session",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Session handler for the Conga.js Framework",
   "directories": {
     "test": "test"
