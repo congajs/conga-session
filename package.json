@@ -1,6 +1,6 @@
 {
   "name": "@conga/framework-session",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Session handler for the Conga.js Framework",
   "directories": {
     "test": "test"
@@ -32,13 +32,13 @@
     "node": "6.0.0"
   },
   "dependencies": {
-    "express-session": "^1.15.3"
+    "express-session": "^1.17.1"
   },
   "devDependencies": {
-    "jasmine": "^2.6.0",
-    "request": "^2.81.0",
+    "jasmine": "^3.6.4",
+    "request": "^2.88.2",
     "session-file-store": "^1.0.0",
-    "@conga/framework": "^2.0.0",
+    "@conga/framework": "^2.1.1",
     "@conga/framework-bass": "^2.0.0",
     "@conga/bass-express-session": "^1.0.2",
     "bass-nedb": "latest"
